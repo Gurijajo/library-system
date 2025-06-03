@@ -43,10 +43,10 @@
         }
     </script>
     
-    {{-- <!-- Custom Meta Information -->
+    <!-- Custom Meta Information -->
     <meta name="application-version" content="1.0.0">
     <meta name="last-updated" content="2025-06-03 08:39:01 UTC">
-    <meta name="developer" content="Guram-jajanidze"> --}}
+    <meta name="developer" content="Guram-jajanidze">
 </head>
 <body class="font-sans antialiased bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
     <div class="min-h-screen">
@@ -280,7 +280,7 @@
                             </button>
 
                             <div x-show="open" @click.away="open = false" 
-                                 class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg py-2 z-50 border border-gray-200">
+                                class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg py-2 z-50 border border-gray-200">
                                 <div class="px-4 py-3 border-b border-gray-100">
                                     <p class="text-sm font-medium text-gray-900">{{ auth()->user()->name }}</p>
                                     <p class="text-xs text-gray-500">{{ auth()->user()->email }}</p>
@@ -288,16 +288,55 @@
                                         <i class="fas fa-crown mr-1"></i>{{ ucfirst(auth()->user()->role) }}
                                     </span>
                                 </div>
+                                
+                                <!-- Personal Menu Items -->
                                 <a href="{{ route('profile.show') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg mx-2">
                                     <i class="fas fa-user-circle mr-3 text-blue-500"></i>My Profile
                                 </a>
                                 <a href="{{ route('profile.settings') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg mx-2">
                                     <i class="fas fa-cog mr-3 text-gray-500"></i>Settings
                                 </a>
+                                
+                                @if(auth()->user()->isLibrarian())
+                                    <!-- Admin/Librarian Only Items -->
+                                    <div class="border-t border-gray-100 my-2"></div>
+                                    <div class="px-4 py-1">
+                                        <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Admin Tools</p>
+                                    </div>
+                                    
+                                    <a href="{{ route('admin.system-check.index') }}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg mx-2 group">
+                                        <i class="fas fa-shield-alt mr-3 text-green-500 group-hover:text-green-600"></i>
+                                        <span class="flex-1">System Check</span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 ml-2">
+                                            <i class="fas fa-bolt mr-1"></i>Pro
+                                        </span>
+                                    </a>
+                                @endif
+                                
+                                <!-- System Information (for all users) -->
+                                <div class="border-t border-gray-100 my-2"></div>
+                                <div class="px-4 py-2 text-xs text-gray-500">
+                                    <div class="flex justify-between items-center">
+                                        <span>LibraryMS v1.0.0</span>
+                                        <span class="text-green-500" title="System Status">
+                                            <i class="fas fa-circle text-xs"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-1">
+                                        <span>Last Update:</span>
+                                        <span>{{ date('Y-m-d H:i') }} UTC</span>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-1">
+                                        <span>Developer:</span>
+                                        <span class="font-medium">Guram-jajanidze</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Logout -->
                                 <div class="border-t border-gray-100 my-2"></div>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg mx-2">
+                                    <button type="submit" class="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg mx-2 transition-colors duration-200">
                                         <i class="fas fa-sign-out-alt mr-3 text-red-500"></i>Sign Out
                                     </button>
                                 </form>
@@ -410,8 +449,8 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center text-sm text-gray-500">
-                        {{-- <i class="fas fa-copyright mr-2"></i>
-                        <span>{{ date('Y') }} LibraryMS v1.0.0 - Developed by Guram-jajanidze</span> --}}
+                        <i class="fas fa-copyright mr-2"></i>
+                        <span>{{ date('Y') }} LibraryMS v1.0.0 - Developed by Guram-jajanidze</span>
                     </div>
                     <div class="flex items-center space-x-4 text-sm text-gray-500">
                         <span class="flex items-center">

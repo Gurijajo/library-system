@@ -105,6 +105,10 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/export/{format}', [UserController::class, 'export'])->name('export');
             Route::post('/bulk-import', [UserController::class, 'bulkImport'])->name('bulk-import');
         });
+
+         Route::get('/system-check', [App\Http\Controllers\Admin\SystemCheckController::class, 'index'])->name('admin.system-check.index');
+    Route::post('/system-check/run', [App\Http\Controllers\Admin\SystemCheckController::class, 'runCheck'])->name('admin.system-check.run');
+    Route::get('/system-check/download', [App\Http\Controllers\Admin\SystemCheckController::class, 'downloadReport'])->name('admin.system-check.download');
         
         // Admin Reports
         Route::prefix('reports')->name('reports.')->group(function () {

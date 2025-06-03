@@ -10,18 +10,29 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      */
-    protected function schedule(Schedule $schedule): void
-    {
-        // $schedule->command('inspire')->hourly();
-    }
+protected function schedule(Schedule $schedule): void
+{
+    // Daily system check at 2 AM
+    $schedule->command('system:check --save-report')
+            ->dailyAt('02:00')
+            ->withoutOverlapping()
+            ->onFailure(function () {
+                // Send notification on failure
+                // შეგიძლიათ Email ან Slack notification დაამატოთ
+            });
+}
 
-    /**
-     * Register the commands for the application.
-     */
-    protected function commands(): void
-    {
-        $this->load(__DIR__.'/Commands');
+protected $commands = [
+    Commands\SystemCheck::class,
+];
 
-        require base_path('routes/console.php');
-    }
+/**
+ * Register the commands for the application.
+ */
+protected function commands(): void
+{
+    $this->load(__DIR__.'/Commands');
+
+    require base_path('routes/console.php');
+}
 }
