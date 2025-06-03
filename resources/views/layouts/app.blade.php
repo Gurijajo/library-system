@@ -43,10 +43,10 @@
         }
     </script>
     
-    <!-- Custom Meta Information -->
+    {{-- <!-- Custom Meta Information -->
     <meta name="application-version" content="1.0.0">
     <meta name="last-updated" content="2025-06-03 08:39:01 UTC">
-    <meta name="developer" content="Guram-jajanidze">
+    <meta name="developer" content="Guram-jajanidze"> --}}
 </head>
 <body class="font-sans antialiased bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
     <div class="min-h-screen">
@@ -410,8 +410,8 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center text-sm text-gray-500">
-                        <i class="fas fa-copyright mr-2"></i>
-                        <span>{{ date('Y') }} LibraryMS v1.0.0 - Developed by Guram-jajanidze</span>
+                        {{-- <i class="fas fa-copyright mr-2"></i>
+                        <span>{{ date('Y') }} LibraryMS v1.0.0 - Developed by Guram-jajanidze</span> --}}
                     </div>
                     <div class="flex items-center space-x-4 text-sm text-gray-500">
                         <span class="flex items-center">
