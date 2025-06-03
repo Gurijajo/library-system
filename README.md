@@ -3,7 +3,7 @@
 A comprehensive, modern library management system built with Laravel 11, featuring advanced book management, intelligent reservation queuing, borrowing tracking, and real-time notifications.
 
 [![Laravel](https://img.shields.io/badge/Laravel-11.x-red.svg)](https://laravel.com)
-[![PHP](https://img.shields.io/badge/PHP-8.2+-blue.svg)](https://php.net)
+[![PHP](https://img.shields.io/badge/PHP-8.1+-blue.svg)](https://php.net)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)](https://github.com/Guram-jajanidze/LibraryMS)
 
@@ -50,18 +50,9 @@ A comprehensive, modern library management system built with Laravel 11, featuri
 ## 🚀 Quick Start
 
 ### Prerequisites
-- PHP 8.2 or higher
+- PHP 8.1 or higher
 - Composer 2.x
 - MySQL 8.0+ or PostgreSQL 13+
-- Node.js 18+ (for asset compilation)
-- Redis (optional, for caching and queues)
-
-### Installation
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/Guram-jajanidze/LibraryMS.git
-   cd LibraryMS
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
